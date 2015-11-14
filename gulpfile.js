@@ -2,9 +2,11 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     jshint = require('gulp-jshint'),
     browserSync = require('browser-sync').create(),
+    spa = require('browser-sync-spa');
     sass = require('gulp-sass'),
     concat = require('gulp-uglify'),
     sourcemaps = require('gulp-sourcemaps'),
+
 
     input = {
       'html': 'source/html/*.html',
@@ -23,6 +25,53 @@ var gulp = require('gulp'),
       return gulp.src('source/javascript/**/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'));
+    });
+
+// *BrowserSync Using Proxy Created by Express*
+/* *To Start:
+      - Start mongoDB (mongod --dbpath "mongodata_folder_name"--> mongo --> Use dbName)
+      - $ node server.js
+      - $ gulp serve
+*/
+/*
+    gulp.task('server', function (cb) {
+      exec('node server.js', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+      });
+      exec('mongod --dbpath "E:\Users\Smith\Desktop\Project Repositories\mongodata"', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+      });
+      exec('mongo', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+      });
+      exec('use portfolio', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+      });
+    })
+*/
+    browserSync.use(spa({
+        selector: "[ng-app]" // Only needed for angular apps
+    }));
+
+    gulp.task('serve', ['build-css'], function() {
+
+        browserSync.init({
+            proxy: {
+              target: "localhost:8080"
+            }
+        });
+
+        gulp.watch("source/sass/*.scss", ['build-css']);
+        gulp.watch("client/js/**/*.js").on('change', browserSync.reload);
+        gulp.watch("client/views/*.html").on('change', browserSync.reload);
     });
 
 // *Concatenate JS files, minify if --type production*
@@ -45,7 +94,8 @@ var gulp = require('gulp'),
         sass: 'source/sass'
         }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(output.stylesheets));
+    .pipe(gulp.dest(output.stylesheets))
+    .pipe(browserSync.stream());
     });
 
 // *Copy any html files to client*
@@ -61,6 +111,6 @@ var gulp = require('gulp'),
       gulp.watch(input.html, ['copy-html']);
     });
 
-    
 
-gulp.task('default', ['jshint', 'build-js', 'build-css', 'copy-html', 'watch']);
+
+gulp.task('default', ['jshint', 'build-js', 'build-css', 'copy-html', 'watch', 'serve']);
