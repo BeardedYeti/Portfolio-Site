@@ -7,6 +7,10 @@ var gulp = require('gulp'),
     concat = require('gulp-uglify'),
     sourcemaps = require('gulp-sourcemaps'),
     Server = require('karma').Server,
+    protractor = require("gulp-protractor").protractor,
+    webdriver_standalone = require('gulp-protractor').webdriver_standalone,
+    webdriver_update = require('gulp-protractor').webdriver_update,
+
 
 
     input = {
@@ -28,7 +32,6 @@ var gulp = require('gulp'),
       - $ node server.js
       - $ gulp serve
 */
-
 /*Uncomment to execute node server.js - Not sure if it is working yet
     gulp.task('server', function (cb) {
       exec('node server.js', function (err, stdout, stderr) {
@@ -36,6 +39,8 @@ var gulp = require('gulp'),
         console.log(stderr);
         cb(err);
       });
+
+
       exec('mongod --dbpath "E:\Users\Smith\Desktop\Project Repositories\mongodata"', function (err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
@@ -135,4 +140,28 @@ var gulp = require('gulp'),
       }, done).start();
     });
 
-gulp.task('default', ['jshint', 'build-js', 'build-css', 'copy-html', 'watch', 'tdd', 'serve']);
+// *E2E Tests With Protractor and Selenium Webdriver Server*
+    gulp.task('webdriver_update', webdriver_update);
+    gulp.task('webdriver_standalone', webdriver_standalone);
+    gulp.task('protractor', ['webdriver_update'], function(cb) {
+        gulp.src(['./test/e2e/*.js']).pipe(protractor({
+            configFile: 'protractor.conf.js',
+        })).on('error', function(e) {
+            console.log(e)
+        }).on('end', cb);
+    });
+
+    /*gulp.task('protractor', function(done) {
+      var args = ['--baseUrl', 'http://localhost:3000'];
+      gulp.src(["./test/e2e/*.js"])
+        .pipe(protractor({
+          configFile: "tests/protractor.conf.js",
+          args: args
+        }))
+        .on('error', function(e) { throw e; });
+    });*/
+
+gulp.task('default', ['jshint', 'build-js', 'build-css', 'copy-html', 'watch']);
+gulp.task('unit', ['test', 'serve']);
+gulp.task('unit:cont', ['tdd', 'serve']);
+gulp.task('e2e', ['serve', 'webdriver_update', 'webdriver_standalone','protractor']);
