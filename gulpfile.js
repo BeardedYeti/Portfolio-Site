@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     concat = require('gulp-uglify'),
     sourcemaps = require('gulp-sourcemaps'),
+    Server = require('karma').Server,
 
 
     input = {
@@ -20,12 +21,6 @@ var gulp = require('gulp'),
       'javascript': 'client/js'
     }
 
-// *Lint Javascript through jshint*
-    gulp.task('jshint', function() {
-      return gulp.src('source/javascript/**/*.js')
-        .pipe(jshint())
-        .pipe(jshint.reporter('jshint-stylish'));
-    });
 
 // *BrowserSync Using Proxy Created by Express*
 /* *To Start:
@@ -33,7 +28,8 @@ var gulp = require('gulp'),
       - $ node server.js
       - $ gulp serve
 */
-/*
+
+/*Uncomment to execute node server.js - Not sure if it is working yet
     gulp.task('server', function (cb) {
       exec('node server.js', function (err, stdout, stderr) {
         console.log(stdout);
@@ -57,6 +53,7 @@ var gulp = require('gulp'),
       });
     })
 */
+
     browserSync.use(spa({
         selector: "[ng-app]" // Only needed for angular apps
     }));
@@ -74,6 +71,15 @@ var gulp = require('gulp'),
         gulp.watch("client/views/*.html").on('change', browserSync.reload);
     });
 
+// *Use $ gulp to run tasks*
+
+// *Lint Javascript through jshint*
+    gulp.task('jshint', function() {
+      return gulp.src('source/javascript/**/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('jshint-stylish'));
+    });
+
 // *Concatenate JS files, minify if --type production*
     gulp.task('build-js', function() {
       return gulp.src(input.javascript)
@@ -83,7 +89,7 @@ var gulp = require('gulp'),
           .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(output.javascript));
-    });
+        });
 
 // *Compile SCSS Files*
     gulp.task('build-css', function() {
@@ -104,13 +110,29 @@ var gulp = require('gulp'),
         .pipe(gulp.dest(output.html));
     });
 
-// *Watches files for changes and runs task on update*
+// *Watches Files for Changes and Runs Task on Update*
     gulp.task('watch', function() {
       gulp.watch(input.javascript, ['jshint', 'build-js']);
       gulp.watch(input.sass, ['build-css']);
       gulp.watch(input.html, ['copy-html']);
     });
 
+//--------------------------------------------------------
+// *Run Karma Test in Jasmine Framework Once and Exit*
+//  To Use $ gulp test
+    gulp.task('test', function (done) {
+      new Server({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true
+      }, done).start();
+    });
+//--------------------------------------------------------
 
+// *Watch for File Changes and Re-run Tests on Each Change*
+    gulp.task('tdd', function (done) {
+      new Server({
+        configFile: __dirname + '/karma.conf.js'
+      }, done).start();
+    });
 
-gulp.task('default', ['jshint', 'build-js', 'build-css', 'copy-html', 'watch', 'serve']);
+gulp.task('default', ['jshint', 'build-js', 'build-css', 'copy-html', 'watch', 'tdd', 'serve']);
