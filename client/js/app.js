@@ -4,5 +4,6 @@ angular.module('portfolio', [
   'ui.bootstrap',
   'MainCtrl',
   'YetiCtrl',
-  'YetiService'
+  'YetiService',
+  'NavbarCtrl'
 ]);

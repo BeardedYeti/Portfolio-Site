@@ -1,7 +1,8 @@
 angular.module('appRoutes', ['ui.router'])
-  .config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider){
+  .config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider) {
     $urlRouterProvider.otherwise('/');
     $stateProvider
+
         // Home Page
         .state('home', {
             url: '/',
