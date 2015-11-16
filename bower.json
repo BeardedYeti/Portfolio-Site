@@ -7,6 +7,20 @@
     "animate.css": "latest",
     "angular": "latest",
     "angular-route": "latest",
-    "jquery": "latest"
+    "angular-animate": "latest",
+    "angular-cookies": "latest",
+    "angular-touch": "latest",
+    "angular-sanitize": "latest",
+    "angular-messages": "latest",
+    "angular-aria": "latest",
+    "angular-resource": "latest",
+    "angular-ui-router": "latest",
+    "angular-bootstrap": "latest",
+    "angular-toastr": "latest",
+    "jquery": "latest",
+  },
+  "resolutions": {
+    "jquery": "latest",
+    "angular": "latest"
   }
 }

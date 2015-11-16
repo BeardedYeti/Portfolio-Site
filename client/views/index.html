@@ -4,39 +4,57 @@
     <meta charset="UTF-8">
     <base href="/">
     <title>Portfolio</title>
+    <meta name="description" content="Resume, Project List, About Me, and Accomplishments">
+    <meta name="keywords" content="Web Developer, Software Engineer, Full-Stack Developer, AngularJS, Express, Node.js, MongoDB, Bootstrap, HTML, CSS, SASS, Gulp, Karma, Jasmine, Protractor, Awesomesauce, Interwebs, Portfolio, Project List, Colin Smith, Colin M. Smith">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
     <!--Style Here-->
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="libs/animate.css/animate.min.css">
       <!--Custom Style Here-->
     <link rel="stylesheet" href="css/style.css">
     <!--Magic Scrolls Here-->
     <script src="libs/angular/angular.min.js"></script>
     <script src="libs/angular-route/angular-route.min.js"></script>
+    <script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="libs/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="libs/angular-animate/angular-animate.min.js"></script>
+    <script src="libs/angular-aria/angular-aria.min.js"></script>
+    <script src="libs/angular-cookies/angular-cookies.min.js"></script>
+    <script src="libs/angular-messages/angular-messages.min.js"></script>
+    <script src="libs/angular-resource/angular-resource.min.js"></script>
+    <script src="libs/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="libs/angular-toastr/angular-toastr.min.js"></script>
       <!--Custom Angular Scrolls-->
     <script src="js/controllers/MainCtrl.js"></script>
     <script src="js/controllers/YetiCtrl.js"></script>
     <script src="js/services/YetiService.js"></script>
-    <script src="js/appRoutes.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/appRoutes.js"></script>
 </head>
-<body ng-app="portfolio" ng-controller="MainController">
+<body ng-app="portfolio">
   <div class="container">
-
     <!--Navbar-->
-    <nav class="navbar navbar-default">
+    <nav class="top-nav navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">Portfolio</a>
+          <a class="navbar-brand" ui-sref="home">Portfolio</a>
         </div>
-
-        <!-- Page Links, Angular Handles Routing -->
         <ul class="nav navbar-nav">
-            <li><a href="/yeti">Yeti</a></li>
+            <li><a ui-sref="yeti">Yeti</a></li>
         </ul>
     </nav>
     <!--Content-->
-    <div ng-view></div>
 
+      <div ui-view></div>
+
+    <!--Footer-->
+    <footer ng-include="'views/components/footer.html'"></footer>
+  </div>
     <!--Magic Here-->
 
-  </div>
+
 </body>
 </html>

@@ -1,19 +1,18 @@
-angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-
-    $routeProvider
-
+angular.module('appRoutes', ['ui.router'])
+  .config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider){
+    $urlRouterProvider.otherwise('/');
+    $stateProvider
         // Home Page
-        .when('/', {
+        .state('home', {
+            url: '/',
             templateUrl: 'views/home.html',
-            controller: 'MainController'
+            controller: 'MainCtrl'
         })
 
         // Bearded Yeti Page (Placeholder)
-        .when('/yeti', {
+        .state('yeti', {
+            url: '/yeti',
             templateUrl: 'views/yeti.html',
-            controller: 'YetiController'
-        });
-
-    $locationProvider.html5Mode(true);
-
-}]);
+            controller: 'YetiCtrl'
+        })
+      }])
