@@ -1,4 +1,4 @@
-<nav class="top-nav navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="NavbarCtrl">
+<nav class="top-nav navbar navbar-default navbar-fixed-top navbar-right" role="navigation" ng-controller="NavbarCtrl">
     <div class="navbar-header">
       <button id="btn-menu-toggle" type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
           <span class="sr-only">Toggle navigation</span>
@@ -6,7 +6,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-      <a class="navbar-brand" ui-sref="home">Portfolio</a>
+      <a class="navbar-brand" ui-sref="home"><span class="icon-smithhammer"></span></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
@@ -14,10 +14,10 @@
       <ul class="nav navbar-nav">
             <li ng-class="{'active':$state.includes('home')}" ng-click="collapseMenu()"><a ui-sref="home">Home</a></li>
             <li ui-sref-active="active" ng-click="collapseMenu()"><a ui-sref="yeti">Yeti</a></li>
-            <!--<li ui-sref-active="active" ng-click="collapseMenu()"><a ui-sref="about">About</a></li>-->
-            <!--<li ui-sref-active="active" ng-click="collapseMenu()"><a ui-sref="portfolio-site">Portfolio</a></li>-->
-            <!--<li ui-sref-active="active" ng-click="collapseMenu()"><a ui-sref="blog">Blog</a></li>-->
-            <!--<li ui-sref-active="active" ng-click="collapseMenu()"><a ui-sref="blog">Contact</a></li>-->
+            <li ui-sref-active="active" ng-click="collapseMenu()"><a ui-sref="about">About</a></li>
+            <li ui-sref-active="active" ng-click="collapseMenu()"><a ui-sref="portfolio-page">Portfolio</a></li>
+            <li ui-sref-active="active" ng-click="collapseMenu()"><a ui-sref="blog">Blog</a></li>
+            <li ui-sref-active="active" ng-click="collapseMenu()"><a ui-sref="contact">Contact</a></li>
 
         <!--For Dropdown Lists
         <li class="dropdown">

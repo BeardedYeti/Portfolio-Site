@@ -16,4 +16,28 @@ angular.module('appRoutes', ['ui.router'])
             templateUrl: 'views/yeti.html',
             controller: 'YetiCtrl'
         })
+        // About Page
+        .state('about', {
+            url: '/about',
+            templateUrl: 'views/about.html',
+            controller: 'YetiCtrl'
+        })
+        // Portfolio Page
+        .state('portfolio-page', {
+            url: '/portfolio',
+            templateUrl: 'views/portfolio-page.html',
+            controller: 'YetiCtrl'
+        })
+        // Blog Page
+        .state('blog', {
+            url: '/blog',
+            templateUrl: 'views/blog.html',
+            controller: 'YetiCtrl'
+        })
+        // Contact Page
+        .state('contact', {
+            url: '/contact',
+            templateUrl: 'views/contact.html',
+            controller: 'YetiCtrl'
+        })
       }])

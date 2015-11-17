@@ -1,7 +1,10 @@
 angular.module('portfolio', [
-  'appRoutes',
   'ui.router',
   'ui.bootstrap',
+  'ngCookies',
+  'ngResource',
+  'ngSanitize',
+  'appRoutes',
   'MainCtrl',
   'YetiCtrl',
   'YetiService',
