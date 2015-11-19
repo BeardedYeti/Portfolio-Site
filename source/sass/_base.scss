@@ -1,0 +1,63 @@
+/*Main Green Colors to Use*/
+$limegreen: #3bff9d;
+$limegreen-lt: #ccffe6;
+$limegreen-dk: #00994d;
+
+/*Main Gray Colors to Use*/
+$gray: #818181;
+$gray-lt: #cccccc;
+$gray-dk: #3a3a3a;
+
+/*Black*/
+$black: #000000;
+
+/*White*/
+$white: #ffffff;
+
+/*For text-shadows*/
+$ghastly: 2px 1px 2px #000;
+
+/*Variables in queries*/
+/*Media Query Breaks*/
+$break-x-small: 320px;
+$break-small: 480px;
+$break-medium: 768px;
+$break-large: 992px;
+$break-x-large: 1200px;
+
+/*Font Options*/
+$crimsonfont: 'Crimson Text', serif;
+$vollkornfont: 'Vollkorn', serif;
+
+body {
+  font-family: $crimsonfont;
+  font-weight: 280;
+  font-size: 16px;
+  color: $limegreen;
+  background-color: $gray-dk;
+  text-shadow: $ghastly;
+}
+
+h1, h2, h3, h4 {
+  font-family: $vollkornfont;
+  font-weight: 500;
+  margin-top: 0px;
+}
+
+h1 {
+  font-weight: 700;
+  letter-spacing: -1.5px;
+}
+
+.injected-content {
+  margin-top: 40px;
+}
+
+.jumbotron {
+  background-color: $gray-lt;
+}
+
+p, li, a {
+  font-family: $crimsonfont;
+  color: $limegreen;
+}

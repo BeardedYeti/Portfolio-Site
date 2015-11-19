@@ -1,50 +1,54 @@
-.top-nav.navbar-default .navbar-brand {
-  color: rgba(59, 255, 157, 1);
-}
-
 .top-nav.navbar-default {
-  font-size: 16px;
-  background-color: rgba(129, 129, 129, 1);
+  font-family: $vollkornfont;
+  font-weight: 700;
+  font-size: 17px;
+  background-color: $gray;
   border-width: 0px;
   border-radius: 0px;
-}
+  padding: 0 90px 0 90px;
 
-.top-nav.navbar-default .navbar-nav>li>a {
-  color: rgba(59, 255, 157, 1);
-  background-color: rgba(129, 129, 129, 1);
-}
+  .navbar-brand {
+    color: $limegreen;
+    
+  }
 
-.top-nav.navbar-default .navbar-nav>li>a:hover,
-.top-nav.navbar-default .navbar-nav>li>a:focus {
-  color: rgba(58, 58, 58, 1);
-  background-color: rgba(59, 255, 157, 1);
-}
+  .navbar-nav>li>a {
+    color: $limegreen;
+    background-color: $gray;
+    float: left;
+  }
 
-.top-nav.navbar-default .navbar-nav>.active>a,
-.top-nav.navbar-default .navbar-nav>.active>a:hover,
-.top-nav.navbar-default .navbar-nav>.active>a:focus {
-  color: rgba(58, 58, 58, 1);
-  background-color: rgba(59, 255, 157, 1);
-}
+  .navbar-nav>li>a:hover,
+  .navbar-nav>li>a:focus {
+    color: $gray-dk;
+    background-color: $limegreen;
+  }
 
-.top-nav.navbar-default .navbar-toggle {
-  border-color: #3bff9d;
-}
+  .navbar-nav>.active>a,
+  .navbar-nav>.active>a:hover,
+  .navbar-nav>.active>a:focus {
+    color: $gray-dk;
+    background-color: $limegreen;
+  }
 
-.top-nav.navbar-default .navbar-toggle:hover,
-.top-nav.navbar-default .navbar-toggle:focus {
-  background-color: #3bff9d;
-}
+  .navbar-toggle {
+    border-color: $limegreen;
+  }
 
-.top-nav.navbar-default .navbar-toggle .icon-bar {
-  background-color: #3bff9d;
-}
+  .navbar-toggle:hover,
+  .navbar-toggle:focus {
+    background-color: $limegreen;
+  }
 
-.top-nav.navbar-default .navbar-toggle:hover .icon-bar,
-.top-nav.navbar-default .navbar-toggle:focus .icon-bar {
-  background-color: #818181;
-}
+  .navbar-toggle .icon-bar {
+    background-color: $limegreen;
+  }
 
+  .navbar-toggle:hover .icon-bar,
+  .navbar-toggle:focus .icon-bar {
+    background-color: $gray;
+  }
+}
 @media (max-width:545px) {
   .navbar-brand span img {
     width: 50%;
