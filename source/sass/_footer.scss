@@ -3,6 +3,12 @@
     margin: auto;
     padding: 10px 0;
     color: $limegreen;
-    a, p {
+    p {
       text-align: center;
+    }
+    ul {
+      display: table;
+      margin: 0 auto;
+      padding: 1em;
+    }
 }

@@ -1,0 +1,44 @@
+/*Default Buttons*/
+
+
+
+/*Nav Footer Buttons*/
+.nav-footer:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+  a {
+    text-decoration: none !important;
+    color: $gray-lt;
+  }
+}
+
+/*Social Media Footer Buttons*/
+ul {
+.intro-social-buttons {
+    text-align: center;
+    li {
+      margin-bottom: 20px;
+      padding: 0;
+    }
+    li:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.button-style {
+  display: inline-block;
+  color: $limegreen;
+  border: 1px outset;
+  border-radius: 30px;
+  background: $gray;
+  text-shadow: $ghastly;
+  box-shadow: $ghastly;
+}
+
+.button-style:hover {
+  color: $gray-dk;
+  background: $limegreen;
+  transform: scale(1.1);
+  transition: 0.1s;
+}

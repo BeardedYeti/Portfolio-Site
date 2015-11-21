@@ -1,6 +1,7 @@
 angular.module('portfolio', [
   'ui.router',
   'ui.bootstrap',
+  'ngAnimate',
   'ngCookies',
   'ngResource',
   'ngSanitize',
@@ -8,5 +9,6 @@ angular.module('portfolio', [
   'MainCtrl',
   'YetiCtrl',
   'YetiService',
-  'NavbarCtrl'
+  'NavbarCtrl',
+  'CarouselCtrl'
 ]);
