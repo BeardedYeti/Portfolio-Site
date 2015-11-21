@@ -4,7 +4,7 @@ angular.module('CarouselCtrl', [])
   $scope.noWrapSlides = false;
   var slides = $scope.slides = [];
   $scope.addSlide = function() {
-    var newWidth = 600 + slides.length + 1;
+    var newWidth = 1200 + slides.length + 1;
     slides.push({
       image: '//placekitten.com/' + newWidth + '/300',
       text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +

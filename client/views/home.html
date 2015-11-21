@@ -1,6 +1,10 @@
 
-<div class="jumbotron">
+<div class="jumbotron main">
     <h1>{{title}}</h1>
-    <p>{{imagine}}</p>
     <div ng-include="'views/components/carousel.html'"></div>
+    <p>{{imagine}}</p>
+      <ul class="inspiration">
+        <li ng-repeat="link in links"><a target="_blank" href="{{link.url}}">{{link.text}}</li>
+      </ul>
+    <img src="{{standardFace}}">
 </div>
