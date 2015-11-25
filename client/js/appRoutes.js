@@ -20,7 +20,7 @@ angular.module('appRoutes', ['ui.router'])
         .state('about', {
             url: '/about',
             templateUrl: 'views/about.html',
-            controller: 'YetiCtrl'
+            controller: 'AboutCtrl'
         })
         // Portfolio Page
         .state('portfolio-page', {

@@ -10,5 +10,6 @@ angular.module('portfolio', [
   'YetiCtrl',
   'YetiService',
   'NavbarCtrl',
-  'CarouselCtrl'
+  'CarouselCtrl',
+  'AboutCtrl'
 ]);
