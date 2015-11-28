@@ -26,7 +26,7 @@ angular.module('appRoutes', ['ui.router'])
         .state('portfolio-page', {
             url: '/portfolio',
             templateUrl: 'views/portfolio-page.html',
-            controller: 'YetiCtrl'
+            controller: 'PortfolioCtrl'
         })
         // Blog Page
         .state('blog', {

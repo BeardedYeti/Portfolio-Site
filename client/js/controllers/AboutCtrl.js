@@ -23,5 +23,76 @@ angular.module('AboutCtrl', []).controller('AboutCtrl', ['$scope', function($sco
         part of that!"
       }
     ];
+    $scope.experiences = [
+      {
+        skillSetTitle: 'Front-End',
+        skillSets: [
+                    'Javascript',
+                    'HTML5',
+                    'CSS3',
+                    'Jquery',
+                    'AngularJS',
+                    'Twitter Bootstrap',
+                    'SASS',
+                    'Git',
+                    'Require.js',
+                    'Durandal.js',
+                    'Node.js',
+                    'Gulp/Grunt',
+                    'Bower',
+                    'npm',
+                    'Yeoman',
+                    'Unit Testing - Karma, Jasmine',
+                    'End-To-End Testing - Protractor',
+                    'Wordpress',
+                    'Adobe Photoshop',
+                    'Adobe Illustrator',
+                    'Adobe Premiere Pro',
+                    'Autodesk Maya'
+                  ]
+      },{
+        skillSetTitle: 'Back-End',
+        skillSets: [
+                    'C#',
+                    'Node.js',
+                    'Express.js',
+                    'MongoDB',
+                    'Mongoose',
+                    'NoSQL',
+                    'RESTful API',
+                    'PHP',
+                    'MySQL',
+                    'FTP',
+                    'Redis',
+                    'SSH'
+                  ]
+      },{
+        skillSetTitle: 'Things to Learn',
+        skillSets: [
+                    'C++',
+                    'Java/E2EE',
+                    'Spring',
+                    'Linux',
+                    'Apache Web Services',
+                    'Security/OAuth2',
+                    'SOA/Microservices',
+                    'Caching/NginX',
+                    'DevOps',
+                    'ES6',
+                    'Typescript',
+                    'Jade',
+                    'React.js',
+                    'Backbone.js',
+                    'Docker',
+                    'Browserify',
+                    'Laravel',
+                    'Drupal',
+                    'Python',
+                    'GoLang',
+                    'Unity Engine',
+                    'Video Game Development'
+                  ]
+      }
+    ];
 
 }]);
