@@ -7,9 +7,32 @@
     margin: 10px 10px 10px 10px;
     background-color: $gray-lt;
   }
-  /*img:hover {
-    transform: scale(1.05);
-  }*/
+  .caption {
+    background-color: $gray-dk;
+    opacity: 0;
+    position: absolute;
+    border-radius: 25px;
+    overflow: hidden;
+    padding: 1px 1px 1px 1px;
+    margin: 10px 10px 10px 10px;
+    width: 95%;
+    height: 97.75%;
+    top: -6px;
+    left: 9px;
+    -webkit-transition: opacity 0.3s linear;
+    text-shadow: $ghastly;
+    color: #ccc;
+  }
+  .caption-style:hover {
+    .caption {
+      display: block;
+      opacity: 0.8;
+    }
+    img {
+      transform: scale(1.05);
+    }
+  }
+
   /*figure {
   	position: relative;
   	overflow: hidden;*/
