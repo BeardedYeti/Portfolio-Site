@@ -32,7 +32,7 @@ angular.module('appRoutes', ['ui.router'])
         .state('blog', {
             url: '/blog',
             templateUrl: 'views/blog.html',
-            controller: 'YetiCtrl'
+            controller: 'BlogCtrl'
         })
         // Contact Page
         .state('contact', {

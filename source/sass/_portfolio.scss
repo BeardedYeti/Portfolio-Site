@@ -1,4 +1,7 @@
 .portfolio-page {
+  h1 {
+    text-align: center;
+  }
   img {
     border: 2px solid $black;
     border-radius: 25px;
@@ -8,10 +11,9 @@
     background-color: $gray-lt;
   }
   .caption {
-    background-color: $gray-dk;
+    /*background-color: $gray-dk;*/
     opacity: 0;
     position: absolute;
-    border-radius: 25px;
     overflow: hidden;
     padding: 1px 1px 1px 1px;
     margin: 10px 10px 10px 10px;
@@ -21,15 +23,29 @@
     left: 9px;
     -webkit-transition: opacity 0.3s linear;
     text-shadow: $ghastly;
-    color: #ccc;
+    h2, p {
+      word-spacing: -0.15em;
+      position: relative;
+      text-align: center;
+    	top: 40%;
+    	left: 0;
+    	width: 100%;
+    	color: $limegreen;
+    	-webkit-transition: -webkit-transform 0.35s, color 0.35s;
+    	transition: transform 0.35s, color 0.35s;
+    	-webkit-transform: translate3d(0,-50%,0);
+    	transform: translate3d(0,-50%,0);
+    }
   }
   .caption-style:hover {
     .caption {
       display: block;
-      opacity: 0.8;
+      opacity: 1;
     }
     img {
       transform: scale(1.05);
+      filter: gray;
+      -webkit-filter: grayscale(1.0);
     }
   }
 

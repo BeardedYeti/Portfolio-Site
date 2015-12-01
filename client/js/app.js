@@ -12,5 +12,6 @@ angular.module('portfolio', [
   'NavbarCtrl',
   'CarouselCtrl',
   'AboutCtrl',
-  'PortfolioCtrl'
+  'PortfolioCtrl',
+  'BlogCtrl'
 ]);
