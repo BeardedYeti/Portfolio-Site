@@ -8,10 +8,10 @@ angular.module('portfolio', [
   'appRoutes',
   'MainCtrl',
   'YetiCtrl',
-  'YetiService',
   'NavbarCtrl',
   'CarouselCtrl',
   'AboutCtrl',
   'PortfolioCtrl',
-  'BlogCtrl'
+  'BlogCtrl',
+  'BlogService'
 ]);

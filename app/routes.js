@@ -1,4 +1,4 @@
-var Yeti = require('./models/yeti');
+var Blog = require('./models/blog');
 
     module.exports = function(app) {
 
@@ -6,16 +6,75 @@ var Yeti = require('./models/yeti');
         // Place API calls here
         // Place Authentication routes here
 
-        // *Test API Route*
-        // Uses Mongoose to GET all Yeti (like Jedi or Fungi)from database
-        app.get('/api/yeti', function(req, res) {
-            Yeti.find(function(err, yeti) {
+        // *API Routes*
+        // Uses Mongoose to GET all Blog Posts from database
+        app.get('/api/blog', function(req, res) {
+            Blog.find(function(err, blog) {
                 // If error
                 if (err)
                 res.send(err);
-                res.json(yeti); // Returns in JSON
+                res.json(blog); // Returns in JSON
             });
         });
+
+        // Uses Mongoose to POST new Blog Posts in database
+        app.post('/api/blog', function(req, res) {
+          Blog.create({
+            title: req.body.title,
+            body: req.body.body,
+            author: req.body.author,
+            comments: req.body.comments,
+            likes: req.body.likes,
+            dislikes: req.body.dislikes,
+            image: req.body.image,
+            createdOn: req.body.createdOn
+          }, function(err, blog) {
+            if (err)
+            res.send(err);
+            Blog.find(function(err, blog) {
+              if (err)
+              res.send(err)
+              res.json(blog);
+            });
+          });
+        });
+
+        // Uses Mongoose to PUT updates for Blog Posts in database
+        app.put('/api/blog/:blog:_id', function(req, res) {
+          Blog.findById(req.params.blog_id, function(err, blog) {
+            if (err)
+            res.send(err);
+            blog.title = req.body.title;
+            blog.body = req.body.body;
+            blog.author = req.body.author;
+            blog.comments = req.body.comments;
+            blog.likes = req.body.likes;
+            blog.dislikes = req.body.dislikes,
+            blog.image = req.body.image;
+            blog.createdOn = req.body.createdOn;
+            blog.save(function(err) {
+              if (err)
+              res.send(err);
+              res.json({ message: 'Blog Updated' });
+            });
+          });
+        });
+
+        // Uses Mongoose to DELETE Blog Posts in database
+        app.delete('/api/blog:blog_id', function(req, res) {
+          Blog.remove({
+            _id : req.params.blog_id
+          }, function(err, blog) {
+            if (err)
+            res.send(err);
+            Blog.find(function(err, blog) {
+              if (err)
+              res.send(err)
+              res.json(blog);
+            });
+          });
+        });
+
 
         // API's for PUT, POST, DELETE go here
 

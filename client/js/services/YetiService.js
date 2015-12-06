@@ -1,4 +1,4 @@
-angular.module('YetiService', []).factory('Yeti', ['$http', function($http) {
+angular.module('BlogService', []).factory('Blog', ['$http', function($http) {
 
     return {
         // Call to GET Yeti API - Only RESTful API wired
