@@ -2,18 +2,28 @@
   var express = require('express');
   var app = express();
   var mongoose = require('mongoose');
+  //var uriUtil = require('mongodb-uri')
   var bodyParser = require('body-parser');
   var methodOverride = require('method-override');
 
 // *Configuration*
-  var db = require('./config/db');
+  //var database = require('./config/database');
+  //var mongodbUri = database.url;
+  //var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 
   // Set our port
   var port = process.env.PORT || 8080;
 
   // Connect to our mongoDB database
   // Enter in your own credentials in config/db.js for DB url
-  mongoose.connect(db.url);
+  mongoose.connect('mongodb://127.0.0.1:27017/blogs');
+
+  var db = mongoose.connection;
+
+  db.on('error', console.error.bind(console, 'connection error: '));
+  db.once('open', function callback () {
+    console.log("Scrolls are ready to be written!!!");
+  });
 
   // Get all data/stuff of the body (POST) parameters
   // Parse application/json
@@ -32,7 +42,7 @@
   app.use(express.static(__dirname + '/client'));
 
 // *Routes*
-  require('./app/routes')(app); // configure our routes
+  require('./app/routes.js')(app); // configure our routes
 
 
 // *App Start*

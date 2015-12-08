@@ -1,4 +1,17 @@
 angular.module('BlogCtrl', []).controller('BlogCtrl', ['$scope', '$http', 'BlogService', function($scope, $http, BlogService) {
+  $scope.title = "Blog"
+  var blog = this;
+  blog.tab = 'blog';
+
+  blog.selectTab = function(setTab){
+    blog.tab = setTab;
+    console.log(blog.tab)
+  };
+
+  blog.isSelected = function(checkTab){
+    return blog.tab === checkTab;
+  };
+
   $scope.formData = {};
 
 //Get all Blog Posts
@@ -33,5 +46,6 @@ $scope.deleteBlog = function(id) {
     console.log('Error: ' + data);
   });
 };
+
 
 }]);

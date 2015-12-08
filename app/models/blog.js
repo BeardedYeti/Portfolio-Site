@@ -8,9 +8,9 @@ module.exports = mongoose.model('Blog', {
     title: String,
     body: String,
     author: String,
-    comments: [{ body: String, date: Date }],
+    comments: [{ body: String, author: String, date: Date }],
     likes: Number,
     dislikes: Number,
     image: {type : String, default: ''},
-    createdOn: date: { type: Date, default: Date.now }
+    createdOn: { type: Date, default: Date.now }
 });

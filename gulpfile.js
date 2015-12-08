@@ -51,7 +51,7 @@ var gulp = require('gulp'),
         console.log(stderr);
         cb(err);
       });
-      exec('use portfolio', function (err, stdout, stderr) {
+      exec('use blog', function (err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
         cb(err);

@@ -40,7 +40,7 @@ var Blog = require('./models/blog');
         });
 
         // Uses Mongoose to PUT updates for Blog Posts in database
-        app.put('/api/blog/:blog:_id', function(req, res) {
+        app.put('/api/blog:blog:_id', function(req, res) {
           Blog.findById(req.params.blog_id, function(err, blog) {
             if (err)
             res.send(err);
@@ -80,10 +80,9 @@ var Blog = require('./models/blog');
 
         // *Frontend Routes*
         // Route to handle all AngularJS requests
-        var path = require('path');
 
         app.get('*', function(req, res) {
-        res.sendFile(path.join(__dirname, "../client/views/index.html"));
+        res.sendfile('./client/views/index.html');
         });
 
     };
