@@ -5,12 +5,12 @@ var mongoose = require('mongoose');
 // module.exports allows us to pass this to other files when it is called
 // For more fields refer to Mongoose docs
 module.exports = mongoose.model('Blog', {
-    title: String,
-    body: String,
-    author: String,
-    comments: [{ body: String, author: String, date: Date }],
-    likes: Number,
-    dislikes: Number,
-    image: {type : String, default: ''},
-    createdOn: { type: Date, default: Date.now }
+  title: {type : String, default: ''},
+  body: {type : String, default: ''},
+  author: {type : String, default: ''},
+  comments: [{ body: String, author: String, date: Date }],
+  likes: {type : Number, default: '0'},
+  dislikes: {type : Number, default: '0'},
+  image: {type : String, default: ''},
+  createdOn: { type: Date, default: Date.now }
 });

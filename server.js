@@ -1,22 +1,19 @@
 // *Modules*
   var express = require('express');
-  var app = express();
   var mongoose = require('mongoose');
-  //var uriUtil = require('mongodb-uri')
+  var port = process.env.PORT || 8080;
+  var logger = require('morgan');
+  var favicon = require('serve-favicon');
   var bodyParser = require('body-parser');
   var methodOverride = require('method-override');
+  var app = express();
+  //var database = require('./config/database');
 
 // *Configuration*
-  //var database = require('./config/database');
-  //var mongodbUri = database.url;
-  //var mongooseUri = uriUtil.formatMongoose(mongodbUri);
-
-  // Set our port
-  var port = process.env.PORT || 8080;
 
   // Connect to our mongoDB database
   // Enter in your own credentials in config/db.js for DB url
-  mongoose.connect('mongodb://127.0.0.1:27017/blogs');
+  mongoose.connect('mongodb://127.0.0.1:27017/blog');
 
   var db = mongoose.connection;
 
@@ -25,7 +22,8 @@
     console.log("Scrolls are ready to be written!!!");
   });
 
-  // Get all data/stuff of the body (POST) parameters
+  app.use(logger('dev'));
+
   // Parse application/json
   app.use(bodyParser.json());
 
@@ -33,16 +31,27 @@
   app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
   // Parse application/x-www-form-urlencoded
-  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.urlencoded({ extended: false }));
+
+  // Parse raw text
+  app.use(bodyParser.text());
 
   // Override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
-  app.use(methodOverride('X-HTTP-Method-Override'));
+  app.use(methodOverride());
 
   // Set the static files location /client/img will be /img for users
   app.use(express.static(__dirname + '/client'));
 
+  app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, HEAD, DELETE');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, content-type, Accept');
+  next();
+  });
+
+
 // *Routes*
-  require('./app/routes.js')(app); // configure our routes
+  require('./app/routes.js')(app);
 
 
 // *App Start*
