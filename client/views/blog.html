@@ -1,16 +1,39 @@
+<div ng-controller="BlogCtrl as blog">
 <div class="container-fluid blog-content">
   <div class="jumbotron well">
-      <h1>{{title}}</h1>
+      <h1>Blog</h1>
       <div class="icon-dividers">
         <span class="fa fa-star star-icons"></span><span class="fa fa-star star-icons"></span><span class="fa fa-star star-icons"></span>
       </div>
+      <div class="offset-md-6 col-md-12">
+        <nav role='navigation' class="push-right">
+          <ul>
+            <li><a href="#" ng-click="blog.selectTab('blog')">Blog Index</a></li>
+            <!--<li><a href="#" ng-click="blog.selectTab('new')">New Post</a></li>-->
+          </ul>
+        </nav>
+      </div>
   </div>
   <div class="row">
-      <ul>
-        <li ng-repeat="post in blog" class="col-md-12">
+      <ul ng-show="blog.isSelected('blog')">
+        <li ng-repeat="post in blog.posts" class="col-md-12" ng-class="{ 'reset-s' : $index%3==0 }" ng-click="blog.selectTab($index)">
           <h3>{{post.title}}</h3>
-          <p>{{post.body}}</p>
+          <p>{{ post.createdOn | date:'medium' }} - {{post.body | limitTo:120}}...</p>
+          <p class="fa fa-comment push-left"> {{post.comments.length}} </p>
+          <p class="fa fa-thumbs-up push-right"> {{post.likes}} </p>
+          <p class="fa fa-thumbs-down push-right"> {{post.dislikes}} </p>
         </li>
       </ul>
+      <div class="post" ng-repeat="post in blog.posts" ng-show="blog.isSelected($index)">
+        <div>
+          <h2>{{post.title}}</h2>
+          <img ng-src="{{post.image}}" ng-show="{{post.image}}"/>
+          <cite>by {{post.author}} on {{ post.createdOn | date:'medium' }}</cite>
+          <div class="post-body">
+            <p>{{post.body}}</p>
+          </div>
+        </div>
+      </div>
     </div>
+</div>
 </div>
