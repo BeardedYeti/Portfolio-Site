@@ -5,16 +5,16 @@
       <div class="icon-dividers">
         <span class="fa fa-star star-icons"></span><span class="fa fa-star star-icons"></span><span class="fa fa-star star-icons"></span>
       </div>
-      <div class="offset-md-6 col-md-12">
-        <nav role='navigation' class="push-right">
+      <div class="col-md-2 col-md-offset-1 blog-index">
+        <nav role='navigation' class="push-left">
           <ul>
-            <li><a href="#" ng-click="blog.selectTab('blog')">Blog Index</a></li>
+            <li><a href="#" ng-click="blog.selectTab('blog')">BLOG INDEX</a></li>
             <!--<li><a href="#" ng-click="blog.selectTab('new')">New Post</a></li>-->
           </ul>
         </nav>
       </div>
   </div>
-  <div class="row">
+  <div class="row blog-posts">
       <ul ng-show="blog.isSelected('blog')">
         <li ng-repeat="post in blog.posts" class="col-md-12" ng-class="{ 'reset-s' : $index%3==0 }" ng-click="blog.selectTab($index)">
           <h3>{{post.title}}</h3>
@@ -31,6 +31,24 @@
           <cite>by {{post.author}} on {{ post.createdOn | date:'medium' }}</cite>
           <div class="post-body">
             <p>{{post.body}}</p>
+          </div>
+          <div>
+            <button class="fa fa-thumbs-up" ng-click="incrementLikes(post)"> {{post.likes}} </button>
+            <button class="fa fa-thumbs-down" ng-click="incrementDislikes(post)"> {{post.dislikes}} </button>
+            <h3> Comments <h3>
+            <form name="CommentForm" ng-submit="blog.commentsBlog" novalidate>
+              <h4> Add Comment </h4>
+              <textarea ng-model="post.comments.body" cols="30" rows="6" required></textarea>
+              <label for=""> Name: </label>
+              <input type="text" ng-model="post.comments.author" required placeholder="Name"/>
+              <input type="submit" value="Submit"/>
+            </form>
+            <ul>
+              <li ng-repeat="comment in post.comments">
+                "{{comment.body}}"
+                <cite>- <b>{{comment.author}}</b></cite>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

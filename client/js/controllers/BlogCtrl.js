@@ -22,9 +22,16 @@ angular.module('BlogCtrl', []).controller('BlogCtrl', ['$scope', '$http', 'BlogS
     return blog.tab === checkTab;
   };
 
-  blog.formData = {};
+  blog.incrementLikes = function(post) {
+      post.likes += 1;
+  };
 
-//When Submitting the add form, send the text to the node API
+  blog.incrementDislikes = function(post) {
+      post.dislikes += 1;
+  };
+
+
+  blog.formData = {};
   blog.createBlog = function() {
     BlogService.create()
     .success(function(data) {
@@ -37,7 +44,20 @@ angular.module('BlogCtrl', []).controller('BlogCtrl', ['$scope', '$http', 'BlogS
     });
   };
 
-//Delete a Blog Post
+  blog.commentData = {};
+  blog.commentsBlog = function() {
+    BlogService.updateComments()
+    .success(function(data) {
+      blog.commentData = {};
+      blog.posts = data;
+      console.log(data);
+    })
+    .error(function(data) {
+      console.log('Error: ' + data);
+    });
+  };
+
+
   blog.deleteBlog = function(id) {
     BlogService.delete()
     .success(function(data) {
@@ -47,6 +67,5 @@ angular.module('BlogCtrl', []).controller('BlogCtrl', ['$scope', '$http', 'BlogS
       console.log('Error: ' + data);
     });
   };
-
 
 }]);

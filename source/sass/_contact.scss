@@ -1,0 +1,54 @@
+.contact-page {
+  margin: 20px;
+  h1 {
+    text-align: center;
+  }
+  h3 {
+    margin-top: 25px;
+    font-size: 16px;
+    color: $limegreen;
+    text-transform: uppercase;
+    text-shadow: $ghastly;
+  }
+  p {
+    line-height: 28px;
+    font-size: 13px;
+  }
+  form {
+    margin-top: 25px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  input, textarea {
+    border-radius: 4px;
+    background: $gray;
+    color: $limegreen;
+    width: 95%;
+  }
+  button {
+    border-color: $limegreen;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline-color: $limegreen;
+    outline-radius: 10px;
+  }
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: $gray-dk;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $gray-dk;
+    opacity: 1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $gray-dk;
+    opacity: 1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $gray-dk;
+  }
+
+}

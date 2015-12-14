@@ -1,15 +1,16 @@
-
-<div class="jumbotron main">
-    <h1>{{title}}</h1>
-    <div class="icon-dividers">
-      <span class="fa fa-star star-icons"></span><span class="fa fa-star star-icons"></span><span class="fa fa-star star-icons"></span>
-    </div>
-    <h3>{{tagline}}</h3>
-    <div ng-include="'views/components/carousel.html'"></div>
-    <div class="inspiration">
-      <ul>
-        <li ng-repeat="link in links"><a target="_blank" href="{{link.url}}">{{link.text}}</li>
-      </ul>
-      <img src="{{standardLogo}}">
-    </div>
+<div class="main">
+  <div class="jumbotron">
+      <h1>{{title}}</h1>
+      <div class="icon-dividers">
+        <span class="fa fa-star star-icons"></span><span class="fa fa-star star-icons"></span><span class="fa fa-star star-icons"></span>
+      </div>
+      <h3>{{tagline}}</h3>
+      <div ng-include="'views/components/carousel.html'"></div>
+  </div>
+      <div class="inspiration">
+        <ul>
+          <li ng-repeat="link in links"><a target="_blank" href="{{link.url}}">{{link.text}}</li>
+        </ul>
+        <img src="{{standardLogo}}">
+      </div>
 </div>

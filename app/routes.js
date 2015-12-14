@@ -84,9 +84,6 @@ var Blog = require('./models/blog');
             });
           });
 
-
-        // API's for PUT, POST, DELETE go here
-
         // *Frontend Routes*
         // Route to handle all AngularJS requests
 

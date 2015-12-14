@@ -38,6 +38,6 @@ angular.module('appRoutes', ['ui.router'])
         .state('contact', {
             url: '/contact',
             templateUrl: 'views/contact.html',
-            controller: 'YetiCtrl'
+            controller: 'ContactCtrl'
         })
       }])

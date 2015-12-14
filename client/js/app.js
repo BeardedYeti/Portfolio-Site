@@ -13,5 +13,6 @@ angular.module('portfolio', [
   'AboutCtrl',
   'PortfolioCtrl',
   'BlogCtrl',
-  'BlogService'
+  'BlogService',
+  'ContactCtrl'  
 ]);
