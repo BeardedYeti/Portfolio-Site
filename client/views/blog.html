@@ -1,14 +1,14 @@
 <div ng-controller="BlogCtrl as blog">
 <div class="container-fluid blog-content">
   <div class="jumbotron well">
-      <h1>Blog</h1>
+      <a href="#" ng-click="blog.selectTab('blog')"><h1>Blog</h1></a>
       <div class="icon-dividers">
         <span class="fa fa-star star-icons"></span><span class="fa fa-star star-icons"></span><span class="fa fa-star star-icons"></span>
       </div>
       <div class="col-md-2 col-md-offset-1 blog-index">
         <nav role='navigation' class="push-left">
           <ul>
-            <li><a href="#" ng-click="blog.selectTab('blog')">BLOG INDEX</a></li>
+            <li><a href="#" ng-click="blog.selectTab('blog')">INDEX</a></li>
             <!--<li><a href="#" ng-click="blog.selectTab('new')">New Post</a></li>-->
           </ul>
         </nav>
@@ -33,15 +33,19 @@
             <p>{{post.body}}</p>
           </div>
           <div>
-            <button class="fa fa-thumbs-up" ng-click="incrementLikes(post)"> {{post.likes}} </button>
-            <button class="fa fa-thumbs-down" ng-click="incrementDislikes(post)"> {{post.dislikes}} </button>
+            <button class="icon-button" ng-click="incrementLikes(post)">
+              <i class="fa fa-thumbs-up"></i> {{post.likes}}
+            </button>
+            <button class="icon-button" ng-click="incrementDislikes(post)">
+              <i class="fa fa-thumbs-down"></i> {{post.dislikes}}
+            </button>
             <h3> Comments <h3>
-            <form name="CommentForm" ng-submit="blog.commentsBlog" novalidate>
+            <form class="form-style" name="CommentForm" ng-submit="blog.commentsBlog" novalidate>
               <h4> Add Comment </h4>
-              <textarea ng-model="post.comments.body" cols="30" rows="6" required></textarea>
-              <label for=""> Name: </label>
-              <input type="text" ng-model="post.comments.author" required placeholder="Name"/>
-              <input type="submit" value="Submit"/>
+              <textarea ng-model="post.comments.body" cols="30" rows="6" required></textarea></br>
+              <label for=""> Name: </label></br>
+              <input type="text" ng-model="post.comments.author" required placeholder="Name"/></br>
+              <button class="button-style intro-social-buttons" type="submit" value="Submit">Submit</button></br>
             </form>
             <ul>
               <li ng-repeat="comment in post.comments">

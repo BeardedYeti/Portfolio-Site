@@ -6,9 +6,19 @@ angular.module('CarouselCtrl', [])
   $scope.addSlide = function() {
     var newWidth = 1200 + slides.length + 1;
     slides.push({
-      image: '//placekitten.com/' + newWidth + '/300',
-      text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
-        ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
+      image: 'img/carousel/' + newWidth + '/300.jpg',
+      text: [
+        'Welcome. Thanks for visiting!',
+        'Check out my work on Github.',
+        'Read about my research.',
+        'Check out my youtube channel.'
+      ][slides.length % 4],
+      href: [
+        'https://github.com/BeardedYeti/Portfolio-Site',
+        'https://github.com/BeardedYeti',
+        'http://www.ncbi.nlm.nih.gov/pubmed/25678047',
+        'https://www.youtube.com/user/beardedyetigaming'
+      ][slides.length % 4]
     });
   };
   for (var i=0; i<4; i++) {

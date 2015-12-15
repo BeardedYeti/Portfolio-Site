@@ -1,4 +1,5 @@
 .blog-content {
+
   h1 {
     text-align: center;
   }
@@ -6,9 +7,10 @@
     list-style-type: none;
   }
   .blog-index {
-    li {
-      font-weight: 500;
-    }
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    margin: 0 auto;
   }
   .blog-posts {
     width:100%;
@@ -71,5 +73,44 @@
   }
   img {
     max-width:100%;
+  }
+  form {
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+  input, textarea {
+    border-radius: 4px;
+    background: $gray;
+    color: $limegreen;
+    width: 95%;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline-color: $limegreen;
+    outline-radius: 10px;
+  }
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: $gray-dk;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $gray-dk;
+    opacity: 1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $gray-dk;
+    opacity: 1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $gray-dk;
+  }
+  button {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  .icon-button {
+      background: transparent;
+      border-style: none;
   }
 }

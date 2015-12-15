@@ -9,6 +9,7 @@
     }
     .carousel {
       height: 305px;
+      color: $black;
     }
     .inspiration {
       img {
@@ -17,34 +18,89 @@
         margin: 0 auto;
         width: 60%;
       }
+      ul {
+        @media(max-width:768px) {
+          display: inline-block;
+          text-align: center;
+          width: 100%;
+          margin: 0 auto;
+        }
+      }
       li {
         display: inline;
-        padding: 0.25em;
-        font-size: 40px;
+        padding: 1.1%;
+        font-size: 250%;
+        @media(max-width:1200px) {
+          font-size: 200%
+        }
+        @media(max-width:992px) {
+          font-size: 150%
+        }
+        @media(max-width:768px) {
+          font-size: 100%
+        }
       }
+
+
       li:first-child {
         position: relative;
-        right: 60px;
-        top: 300px;
+        right: 1.5em;
+        top: 8.2em;
+        @media(max-width:768px) {
+          right: 0em;
+          top: 0em;
+        }
       }
       li:nth-child(2) {
         position: relative;
-        right: 60px;
-        top: 40px;
+        right: 1.3em;
+        top: 0.8em;
+        @media(max-width:768px) {
+          right: 0em;
+          top: 0em;
+        }
       }
       li:nth-child(3) {
         position: relative;
-        bottom: -450px;
+        bottom: -12.75em;
+        @media(max-width:768px) {
+          bottom: 0em;
+        }
       }
       li:nth-child(4) {
         position: relative;
-        left: 60px;
-        top: 30px;
+        left: 3.7em;
+        top: 0em;
+        @media(max-width:768px) {
+          left: 0em;
+          top: 0em;
+        }
       }
       li:nth-child(5) {
         position: relative;
-        left: -2px;
-        top: 275px;
+        left: 3em;
+        top: 7.5em;
+        @media(max-width:768px) {
+          left: 0em;
+          top: 0em;
+        }
       }
     }
+
 }
+.carousel-caption {
+  position: relative;
+  text-align: center;
+  left: 0;
+  top: 0;
+  animation-delay: 1.5s;
+   -webkit-animation-delay: 1.5s;
+   -moz-animation-delay: 1.5s;
+   -o-animation-delay: 1.5s;
+   -moz-transition: none !important;
+  h3 {
+    text-shadow: $ghastly;
+    text-align: center;
+    color: $limegreen
+  }
+ }

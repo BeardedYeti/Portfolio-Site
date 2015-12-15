@@ -54,7 +54,6 @@ ul {
     }
   }
 }
-
 .button-style {
   display: inline-block;
   color: $limegreen;
@@ -70,4 +69,9 @@ ul {
   background: $limegreen;
   transform: scale(1.1);
   transition: 0.1s;
+}
+.icon-button {
+  button:before {
+    background: transparent;
+  }
 }

@@ -22,6 +22,7 @@
     console.log("Scrolls are ready to be written!!!");
   });
 
+  app.use(favicon(__dirname + '/favicon.ico'));
   app.use(logger('dev'));
 
   // Parse application/json

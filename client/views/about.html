@@ -9,8 +9,10 @@
       </div>
       <div class="row-">
         <div class="col-md-8">
-          <div class="jumbotron">
-            <p ng-repeat="description in descriptions">{{description.text}}</p>
+          <div class="about-text">
+            <div class="jumbotron">
+              <p ng-repeat="description in descriptions">{{description.text}}</p>
+            </div>
           </div>
         </div>
         <div class="col-md-4">
@@ -21,14 +23,18 @@
   </div>
   <div class="row">
     <div ng-repeat="experience in experiences" class="col-xs-6 col-md-4">
-      <h2>
-      	{{experience.skillSetTitle}}
-      </h2>
-      <ul>
-        <li ng-repeat="skillSet in experience.skillSets">
-      		{{skillSet}}
-        </li>
-      </ul>
+      <div class="about-text">
+        <div class="jumbotron">
+          <h2>
+          	{{experience.skillSetTitle}}
+          </h2>
+          <ul>
+            <li ng-repeat="skillSet in experience.skillSets">
+          		{{skillSet}}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
