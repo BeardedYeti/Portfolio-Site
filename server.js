@@ -7,13 +7,13 @@
   var bodyParser = require('body-parser');
   var methodOverride = require('method-override');
   var app = express();
-  //var database = require('./config/database');
+  var database = require('./config/database');
 
 // *Configuration*
 
   // Connect to our mongoDB database
-  // Enter in your own credentials in config/db.js for DB url
-  mongoose.connect('mongodb://127.0.0.1:27017/blog');
+  // Enter in your own credentials in config/database.js for DB url
+  mongoose.connect(database.url);
 
   var db = mongoose.connection;
 
