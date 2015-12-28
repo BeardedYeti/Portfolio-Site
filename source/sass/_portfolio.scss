@@ -11,18 +11,37 @@
     background-color: $gray-lt;
   }
   .caption {
-    /*background-color: $gray-dk;*/
     opacity: 0;
     position: absolute;
     overflow: hidden;
-    padding: 1px 1px 1px 1px;
-    margin: 10px 10px 10px 10px;
+    padding: 0.091em, 0.091em, 0.091em, 0.091em;
+    margin: 0.625em, 0.625em, 0.625em, 0.625em;
     width: 95%;
     height: 97.75%;
     top: -6px;
     left: 9px;
     -webkit-transition: opacity 0.3s linear;
     text-shadow: $ghastly;
+    p {
+      margin-top: 0.09em;
+      margin-left: 0.5em;
+      font-size: 135%;
+      @media(max-width:768px) {
+        font-size: 80%;
+      }
+      @media(max-width:400px) {
+        font-size: 50%;
+      }
+    }
+    h2 {
+      margin-bottom: 0em;
+      @media(max-width:768px) {
+        font-size: 120%;
+      }
+      @media(max-width:400px) {
+        font-size: 100%;
+      }
+    }
     h2, p {
       word-spacing: -0.15em;
       position: relative;
@@ -30,6 +49,7 @@
     	top: 40%;
     	left: 0;
     	width: 100%;
+      padding: 1em;
     	color: $limegreen;
     	-webkit-transition: -webkit-transform 0.35s, color 0.35s;
     	transition: transform 0.35s, color 0.35s;

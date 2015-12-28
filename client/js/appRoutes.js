@@ -9,13 +9,6 @@ angular.module('appRoutes', ['ui.router'])
             templateUrl: 'views/home.html',
             controller: 'MainCtrl'
         })
-
-        // Bearded Yeti Page (Placeholder)
-        .state('yeti', {
-            url: '/yeti',
-            templateUrl: 'views/yeti.html',
-            controller: 'YetiCtrl'
-        })
         // About Page
         .state('about', {
             url: '/about',

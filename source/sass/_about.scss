@@ -5,15 +5,31 @@
     .about-text {
       .jumbotron {
         background-color: $gray;
+        h2 {
+          padding: 0.5em;
+          display: inline-block;
+          width: 100%;
+          margin: 0 auto;
+        }
+        p {
+          padding: 0.5em;
+        }
+        @media(max-width:768px) {
+          font-size: 90%;
+          h2 {
+            font-size: 150%;
+            padding: 1em;
+          }
+        }
       }
     }
 
     .img-structure {
-    height: 70%;
-    width: 70%;
+    height: 90%;
+    width: 90%;
     margin-top: 175px;
     margin-right: 20px;
-    margin-left: 95px;
+    margin-left: 20px;
     margin-bottom: 175px;
     border-radius: 50%;
     border: 2px outset;
@@ -21,7 +37,8 @@
     color: $limegreen;
     box-shadow: $ghastly;
     @media(max-width:992px) {
-    margin: 60px 10px 60px 80px;
+      width: 50%;
+      margin: 1em 0.2em 2em 25%;
     }
   }
 

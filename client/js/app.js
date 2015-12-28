@@ -7,12 +7,11 @@ angular.module('portfolio', [
   'ngSanitize',
   'appRoutes',
   'MainCtrl',
-  'YetiCtrl',
   'NavbarCtrl',
   'CarouselCtrl',
   'AboutCtrl',
   'PortfolioCtrl',
   'BlogCtrl',
   'BlogService',
-  'ContactCtrl'  
+  'ContactCtrl'
 ]);
