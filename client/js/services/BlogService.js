@@ -12,8 +12,8 @@ angular.module('BlogService', []).factory('BlogService', ['$http', function($htt
         },
 
         // Call to PUT to update data using Blog API
-        updateComments : function(blogData) {
-            return $http.put('/api/blog', $scope.commentData);
+        update : function(id) {
+            return $http.put('/api/blog' + id);
         },
 
         // Call to DELETE data using Blog API

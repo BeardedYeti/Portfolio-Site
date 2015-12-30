@@ -46,18 +46,6 @@
       }
     }
   }
-
-  /*.comments {
-    ul {
-      margin:0;
-      padding:0;
-    li {
-      list-style-type:none;
-      padding:20px 5px;
-      border-bottom:1px @blue solid;
-      }
-    }
-  }*/
   .post.ng-hide {
     opacity:0;
   }
@@ -78,11 +66,17 @@
     margin-top: 25px;
     margin-bottom: 20px;
   }
-  input, textarea {
+  .comment-form {
     border-radius: 4px;
     background: $gray;
     color: $limegreen;
     width: 95%;
+  }
+  .comment-button {
+    text-align: center;
+    margin-top: 1em;
+    width: 8%;
+    border-color: $limegreen;
   }
   input:focus,
   select:focus,

@@ -22,13 +22,13 @@ angular.module('BlogCtrl', []).controller('BlogCtrl', ['$scope', '$http', 'BlogS
     return blog.tab === checkTab;
   };
 
-  blog.incrementLikes = function(post) {
+  /*blog.incrementLikes = function(post) {
       post.likes += 1;
   };
 
   blog.incrementDislikes = function(post) {
       post.dislikes += 1;
-  };
+  };*/
 
 
   blog.formData = {};
@@ -43,7 +43,7 @@ angular.module('BlogCtrl', []).controller('BlogCtrl', ['$scope', '$http', 'BlogS
       console.log('Error: ' + data);
     });
   };
-
+  /*
   blog.commentData = {};
   blog.commentsBlog = function() {
     BlogService.updateComments()
@@ -66,6 +66,14 @@ angular.module('BlogCtrl', []).controller('BlogCtrl', ['$scope', '$http', 'BlogS
     .error(function(data) {
       console.log('Error: ' + data);
     });
-  };
+  };*/
 
-}]);
+}])
+.controller('CommentCtrl', function() {
+  this.comment = {};
+  this.addComment = function(post) {
+    this.comment.createdOn = Date.now();
+    post.comments.push(this.comment);
+    this.comment = {};
+  };
+});

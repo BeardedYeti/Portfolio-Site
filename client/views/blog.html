@@ -8,7 +8,7 @@
       <div class="col-md-2 col-md-offset-1 blog-index">
         <nav role='navigation' class="push-left">
           <ul>
-            <li><a href="#" ng-click="blog.selectTab('blog')">INDEX</a></li>
+            <li><a href="#" ng-click="blog.selectTab('blog')">INDEX //</a></li>
             <!--<li><a href="#" ng-click="blog.selectTab('new')">New Post</a></li>-->
           </ul>
         </nav>
@@ -32,20 +32,20 @@
           <div class="post-body">
             <p>{{post.body}}</p>
           </div>
-          <div>
-            <button class="icon-button" ng-click="incrementLikes(post)">
+          <div ng-controller="CommentCtrl as CmtCtrl">
+            <button class="icon-button" ng-click="post.likes = post.likes+1">
               <i class="fa fa-thumbs-up"></i> {{post.likes}}
             </button>
-            <button class="icon-button" ng-click="incrementDislikes(post)">
+            <button class="icon-button" ng-click="post.dislikes = post.dislikes+1">
               <i class="fa fa-thumbs-down"></i> {{post.dislikes}}
             </button>
             <h3> Comments <h3>
-            <form class="form-style" name="CommentForm" ng-submit="blog.commentsBlog" novalidate>
+            <form class="form-style" name="commentForm" ng-submit="commentForm.$valid && CmtCtrl.addComment(post)" novalidate>
               <h4> Add Comment </h4>
-              <textarea ng-model="post.comments.body" cols="30" rows="6" required></textarea></br>
-              <label for=""> Name: </label></br>
-              <input type="text" ng-model="post.comments.author" required placeholder="Name"/></br>
-              <button class="button-style intro-social-buttons" type="submit" value="Submit">Submit</button></br>
+              <textarea class="comment-form" ng-model="CmtCtrl.comment.body" cols="30" rows="6" required></textarea></br>
+              <label for=""> <h4>Name:</h4> </label></br>
+              <input class="comment-form" type="text" ng-model="CmtCtrl.comment.author" required placeholder="Name"/></br>
+              <input class="btn comment-button button-style intro-social-buttons" type="submit" value="Submit"></br>
             </form>
             <ul>
               <li ng-repeat="comment in post.comments">
