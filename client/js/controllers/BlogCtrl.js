@@ -25,7 +25,6 @@ angular.module('BlogCtrl', []).controller('BlogCtrl', ['$scope', '$http', 'BlogS
   /*blog.incrementLikes = function(post) {
       post.likes += 1;
   };
-
   blog.incrementDislikes = function(post) {
       post.dislikes += 1;
   };*/
@@ -56,8 +55,6 @@ angular.module('BlogCtrl', []).controller('BlogCtrl', ['$scope', '$http', 'BlogS
       console.log('Error: ' + data);
     });
   };
-
-
   blog.deleteBlog = function(id) {
     BlogService.delete()
     .success(function(data) {
