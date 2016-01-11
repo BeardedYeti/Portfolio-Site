@@ -1,5 +1,5 @@
 angular.module('BlogService', []).factory('BlogService', ['$http', function($http) {
-
+    //var id = blog_id;
     return {
         // Call to GET Blog API
         get : function() {
@@ -10,7 +10,15 @@ angular.module('BlogService', []).factory('BlogService', ['$http', function($htt
         create : function(blogData) {
             return $http.post('/api/blog', $scope.formData);
         },
-
+        // Call to POST Comments in Blog API
+        createComment : function(comment) {
+          return $http ({
+            method: 'POST',
+            url: '/api/blog/' + id + '/comments',
+            header: { 'content-type' : 'application/x-www-form-urlencode' },
+            data: $.param(commentData)
+          });
+        },
         // Call to PUT to update data using Blog API
         update : function(id) {
             return $http.put('/api/blog' + id);

@@ -6,6 +6,8 @@ angular.module('PortfolioCtrl', []).controller('PortfolioCtrl', ['$scope', funct
               { "src": "img/logos/shd-logo.gif", "alt": "Superhero Database", "title": "Superhero Database", "caption": "C#/.Net, DurandalJs, Knockout.Js, Require.Js, Twitter Bootstrap", "href": "https://github.com/BeardedYeti/SuperHeroApp" },
               { "src": "img/logos/neuro-logo.gif", "alt": "Pediatric TBI Paper", "title": "Pediatric TBI Paper", "caption": "Autodesk Maya, Adobe Photoshop, Adobe Illustrator", "href": "http://www.ncbi.nlm.nih.gov/pubmed/25678047" },
               { "src": "img/logos/beardedyeti-logo.jpg", "alt": "Bearded Yeti Gaming", "title": "Bearded Yeti Gaming", "caption": "Website-TBA, Adobe Premiere Pro", "href": "https://www.youtube.com/user/beardedyetigaming" },
+              { "src": "img/logos/cnrfg-logo.gif", "alt": "Chuck Norris Random Fact Generator", "title": "Chuck Norris Random Fact Generator", "caption": "Jquery, RESTful API, Twitter Bootstrap, SASS, Adobe Photoshop", "href": "http://codepen.io/BeardedYeti/pen/yebyxb" },
+              { "src": "img/logos/calculator-logo.gif", "alt": "Javascript Calculator", "title": "Javascript Calculator", "caption": "Jquery, Twitter Bootstrap, SASS", "href": "http://codepen.io/BeardedYeti/pen/mVwdvX" },
               { "src": "img/logos/JavaScript-logo.png", "alt": "Snippets", "title": "Javascript Snippets", "caption": "Javascript Algorithms", "href": "https://github.com/BeardedYeti/Algorithms" }
           ];
 }]);
