@@ -11,24 +11,24 @@
         <div class="row">
           <div class="col-md-5">
               <h3>Please use the form below to contact me</h3>
-              <form name="contactForm" novalidate>
+              <form name="emailForm" novalidate>
                   <div class="form-group">
   	                <label for="contact-name">Name:</label><br/>
-  	                <input type="text" name="name" placeholder="Full Name" class="contact-name" id="contact-name">
+  	                <input type="email" name="from" ng-model="email.fromName" ng-required="true" placeholder="Full Name" class="contact-name" id="contact-name" >
   	              </div>
   	              <div class="form-group">
   	                <label for="contact-email">Email:</label><br/>
-  	                <input type="text" name="email" placeholder="youremail@email.com" class="contact-email" id="contact-email">
+  	                <input type="email" name="email" ng-model="email.from" ng-required="true" placeholder="youremail@email.com" class="contact-email" id="contact-email">
   	              </div>
   	              <div class="form-group">
   	                <label for="contact-subject">Subject:</label><br/>
-  	                <input type="text" name="subject" placeholder="Email Subject" class="contact-subject" id="contact-subject">
+  	                <input type="text" name="subject" ng-model="email.subject" ng-required="true" placeholder="Email Subject" class="contact-subject" id="contact-subject">
   	              </div>
   	              <div class="form-group">
   	                <label for="contact-message">Message:</label><br/>
-  	                <textarea name="message" placeholder="Your Message" class="contact-message" id="contact-message"></textarea>
+  	                <textarea ng-model="email.text" name="text" placeholder="Your Message" class="contact-message" id="contact-message"></textarea>
   	              </div>
-  	              <button type="submit" class="btn button-style intro-social-buttons fa fa-envelope"> Send </button>
+  	              <button type="submit" ng-click="submitEmail()" class="btn button-style intro-social-buttons fa fa-envelope"> Send </button>
             </form>
           </div>
           <div class="col-md-5 col-md-offset-1">
