@@ -12,6 +12,9 @@
     "method-override": "~2.3.5",
     "mongoose": "~4.2.5",
     "morgan": "~1.6.1",
+    "nodemailer": "~2.3.0",
+    "nodemailer-sendgrid-transport": "~0.2.0",
+    "sendgrid": "^1.9.2",
     "serve-favicon": "~2.3.0",
     "path": "^0.12.7"
   },

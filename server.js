@@ -5,12 +5,20 @@
   var logger = require('morgan');
   var favicon = require('serve-favicon');
   var bodyParser = require('body-parser');
+  var sendgrid_username = process.env.SENDGRID_USERNAME;
+  var sendgrid_password = process.env.SENDGRID_PASSWORD;
+  var options = {
+    auth: {
+        api_key: process.env.SENDGRID_API_KEY
+    }
+  } ;
   var methodOverride = require('method-override');
+  var nodemailer = require('nodemailer');
+  var sgTransport = require('nodemailer-sendgrid-transport');
   var app = express();
   var database = require('./config/database');
 
 // *Configuration*
-
   // Connect to our mongoDB database
   // Enter in your own credentials in config/database.js for DB url
   mongoose.connect(database.url);
@@ -22,6 +30,7 @@
     console.log("Scrolls are ready to be written!!!");
   });
 
+// *Middleware*
   app.use(favicon(__dirname + '/favicon.ico'));
   app.use(logger('dev'));
 
@@ -32,7 +41,7 @@
   app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
   // Parse application/x-www-form-urlencoded
-  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.urlencoded({ extended: true }));
 
   // Parse raw text
   app.use(bodyParser.text());
@@ -53,6 +62,24 @@
 // *Routes*
   require('./app/routes.js')(app);
 
+// *For Email*
+  var mailer = nodemailer.createTransport(sgTransport(options));
+
+  app.post('/api/email', function(req, res) {
+    var mailOptions = {
+      to: ['cmsgoboston41@gmail.com', req.body.to],
+      from: req.body.from,
+      fromname: req.body.fromname,
+      subject: req.body.subject,
+      text: req.body.text
+    };
+    mailer.sendMail(mailOptions, function(err, res) {
+      if(err) {
+        console.log(err)
+      }
+      console.log(res);
+    });
+  });
 
 // *App Start*
   // http://localhost:8080
